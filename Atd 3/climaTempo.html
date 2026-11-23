@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Consulta de condições meteorológicas por cidade.">
+  <title>ClimaTempo | Consulte o tempo na sua cidade</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar"><a class="brand" href="climaTempo.html" aria-label="ClimaTempo, página inicial"><span class="brand-icon">☀</span> Clima<span>Tempo</span></a><span class="topbar-label">Projeto Front-End • APIs</span></header>
+    <main>
+      <section class="hero" aria-labelledby="titulo"><div class="hero-copy"><span class="eyebrow">PREVISÃO EM TEMPO REAL*</span><h1 id="titulo">Como está o tempo <em>por aí?</em></h1><p>Pesquise uma cidade e descubra a temperatura, a sensação térmica e as condições meteorológicas atuais.</p></div><div class="hero-art" aria-hidden="true"><div class="sun"></div><div class="cloud cloud-one"></div><div class="cloud cloud-two"></div></div></section>
+      <section class="search-panel" aria-labelledby="titulo-busca"><h2 id="titulo-busca">Consulte uma cidade</h2><form id="consultaClima"><label for="cidade">Nome da cidade</label><div class="search-row"><input id="cidade" name="cidade" type="search" placeholder="Ex.: Fortaleza, Recife, São Paulo" autocomplete="address-level2" required><button id="botao" type="submit">Consultar clima <span aria-hidden="true">→</span></button></div></form><p class="hint">Dica: digite o nome completo da cidade. Cidades homônimas podem exigir uma seleção mais precisa.</p></section>
+      <section class="results" id="resultado" aria-labelledby="titulo-resultado"><div class="section-heading"><div><span class="eyebrow">RESULTADO DA CONSULTA</span><h2 id="titulo-resultado">Condições atuais</h2></div><span class="live-tag" id="statusConsulta" role="status" aria-live="polite">Aguardando pesquisa</span></div>
+        <div class="weather-grid"><article class="weather-main"><span class="card-caption">LOCALIZAÇÃO</span><h3 id="nomeCidade">Sua próxima consulta</h3><p id="localizacao">Cidade e país aparecerão aqui</p><div class="temp-line"><span id="temperatura">--</span><span class="degree">°C</span></div><p class="condition" id="descricaoClima">Consulte uma cidade para ver o clima</p><p class="updated" id="atualizacao">Horário da observação: --</p></article>
+        <div class="metrics"><article class="metric"><span class="metric-icon">🌡️</span><div><p>Sensação térmica</p><strong id="sensacaoTermica">-- °C</strong></div></article><article class="metric"><span class="metric-icon">💧</span><div><p>Umidade relativa</p><strong id="umidade">-- %</strong></div></article><article class="metric"><span class="metric-icon">🌤️</span><div><p>Código meteorológico</p><strong id="codigoClima">--</strong></div></article><article class="metric"><span class="metric-icon">📍</span><div><p>Coordenadas</p><strong id="coordenadas">--, --</strong></div></article></div></div>
+        <p id="mensagem" class="message" role="alert" aria-live="assertive">Os campos acima deverão ser preenchidos pelo JavaScript desenvolvido por você.</p>
+      </section>
+    </main><footer>Dados meteorológicos: <a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo</a> · Projeto educacional · *Dados atuais disponibilizados pela API, não medições instantâneas</footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,419 @@
+:root {
+  color-scheme: light;
+  --cor-fundo: #f3f7fb;
+  --cor-superficie: #ffffff;
+  --cor-texto: #14243a;
+  --cor-secundaria: #6e7d91;
+  --cor-primaria: #167f93;
+  --cor-primaria-escura: #0e6879;
+  --cor-borda: #e2eaf0;
+  --cor-sucesso: #18845d;
+  --cor-erro: #b63a45;
+  --sombra: 0 18px 55px rgb(34 60 82 / 9%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  padding: 46px 20px 36px;
+  background:
+    radial-gradient(ellipse at 86% 6%, rgb(118 204 218 / 23%), transparent 30%),
+    linear-gradient(180deg, #f8fbfd 0%, var(--cor-fundo) 100%);
+  color: var(--cor-texto);
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+}
+
+.pagina {
+  width: min(100%, 790px);
+  margin: 0 auto;
+}
+
+.cabecalho {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.marca {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 30px;
+  color: var(--cor-texto);
+  font-size: 1.05rem;
+  font-weight: 750;
+  text-decoration: none;
+}
+
+.marca-icone {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border-radius: 50%;
+  background: #e6f4f4;
+  color: #e89a35;
+  font-size: 1.3rem;
+}
+
+.etiqueta {
+  margin: 0 0 10px;
+  color: var(--cor-primaria);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 12px;
+  font-size: clamp(2.1rem, 6vw, 3.35rem);
+  letter-spacing: -0.055em;
+  line-height: 1.08;
+}
+
+h1 span {
+  color: var(--cor-primaria);
+}
+
+.introducao {
+  margin: 0;
+  color: var(--cor-secundaria);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.busca-cartao,
+.resultado {
+  border: 1px solid rgb(226 234 240 / 90%);
+  border-radius: 20px;
+  background: var(--cor-superficie);
+  box-shadow: var(--sombra);
+}
+
+.busca-cartao {
+  padding: 25px 28px;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.busca-linha {
+  display: flex;
+  gap: 10px;
+}
+
+input {
+  width: 100%;
+  min-width: 0;
+  height: 52px;
+  padding: 0 16px;
+  border: 1px solid var(--cor-borda);
+  border-radius: 11px;
+  outline: 0;
+  color: var(--cor-texto);
+  font: inherit;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+input::placeholder {
+  color: #a4afbd;
+}
+
+input:focus {
+  border-color: var(--cor-primaria);
+  box-shadow: 0 0 0 3px rgb(22 127 147 / 12%);
+}
+
+button {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 142px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 11px;
+  background: var(--cor-primaria);
+  color: white;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+  transition: background-color 150ms ease, opacity 150ms ease;
+}
+
+button:hover:not(:disabled) {
+  background: var(--cor-primaria-escura);
+}
+
+button:focus-visible {
+  outline: 3px solid rgb(22 127 147 / 28%);
+  outline-offset: 3px;
+}
+
+button:disabled {
+  cursor: wait;
+  opacity: 0.72;
+}
+
+.icone-busca {
+  font-size: 1.35rem;
+  line-height: 0.8;
+}
+
+.dica {
+  margin: 10px 0 0;
+  color: var(--cor-secundaria);
+  font-size: 0.78rem;
+}
+
+.resultado {
+  margin-top: 22px;
+  padding: 24px 28px 0;
+}
+
+.estado {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 13px 15px;
+  border: 1px solid var(--cor-borda);
+  border-radius: 12px;
+  background: #f8fafc;
+}
+
+.estado-ponto {
+  width: 9px;
+  height: 9px;
+  flex: 0 0 auto;
+  margin-top: 5px;
+  border-radius: 50%;
+  background: #9aa8b9;
+}
+
+.estado-titulo,
+.estado-mensagem {
+  margin: 0;
+}
+
+.estado-titulo {
+  font-size: 0.86rem;
+  font-weight: 750;
+}
+
+.estado-mensagem {
+  margin-top: 3px;
+  color: var(--cor-secundaria);
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.estado[data-status="loading"] .estado-ponto {
+  background: #e2a632;
+  animation: pulsar 1s ease-in-out infinite;
+}
+
+.estado[data-status="success"] {
+  border-color: #d7eee5;
+  background: #f3fbf7;
+}
+
+.estado[data-status="success"] .estado-ponto {
+  background: var(--cor-sucesso);
+}
+
+.estado[data-status="error"] {
+  border-color: #f2dfe1;
+  background: #fff7f7;
+}
+
+.estado[data-status="error"] .estado-ponto {
+  background: var(--cor-erro);
+}
+
+.clima-cabecalho {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 30px 0 26px;
+}
+
+.clima-cabecalho .etiqueta {
+  margin-bottom: 7px;
+}
+
+h2 {
+  margin-bottom: 5px;
+  font-size: clamp(1.65rem, 4vw, 2.25rem);
+  letter-spacing: -0.04em;
+}
+
+.localizacao {
+  margin-bottom: 0;
+  color: var(--cor-secundaria);
+  font-size: 0.9rem;
+}
+
+.temperatura-bloco {
+  min-width: 180px;
+  text-align: right;
+}
+
+.temperatura-icone {
+  color: #e8a237;
+  font-size: 1.5rem;
+}
+
+.temperatura {
+  margin: 0;
+  font-size: clamp(3rem, 9vw, 4.5rem);
+  font-weight: 650;
+  letter-spacing: -0.07em;
+  line-height: 1;
+}
+
+.temperatura span {
+  margin-left: 3px;
+  color: var(--cor-secundaria);
+  font-size: 1.55rem;
+  font-weight: 450;
+  vertical-align: top;
+}
+
+.descricao-clima {
+  margin: 8px 0 0;
+  color: var(--cor-secundaria);
+  font-size: 0.9rem;
+}
+
+.detalhes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  padding-bottom: 24px;
+}
+
+.detalhe {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  padding: 15px;
+  border: 1px solid var(--cor-borda);
+  border-radius: 12px;
+  background: #fbfcfe;
+}
+
+.detalhe-icone {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 11px;
+  background: #eaf5f6;
+  color: var(--cor-primaria);
+  font-size: 1.35rem;
+}
+
+.detalhe-rotulo {
+  margin: 0 0 4px;
+  color: var(--cor-secundaria);
+  font-size: 0.76rem;
+}
+
+.detalhe-valor {
+  overflow-wrap: anywhere;
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.rodape {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 0 18px;
+  border-top: 1px solid var(--cor-borda);
+  color: var(--cor-secundaria);
+  font-size: 0.75rem;
+}
+
+.credito {
+  margin: 18px 0 0;
+  color: var(--cor-secundaria);
+  font-size: 0.76rem;
+  text-align: center;
+}
+
+@keyframes pulsar {
+  50% {
+    opacity: 0.35;
+  }
+}
+
+@media (max-width: 560px) {
+  body {
+    padding: 28px 14px;
+  }
+
+  .marca {
+    margin-bottom: 24px;
+  }
+
+  .busca-cartao {
+    padding: 20px;
+  }
+
+  .busca-linha {
+    flex-direction: column;
+  }
+
+  button {
+    min-height: 50px;
+  }
+
+  .resultado {
+    padding: 18px 18px 0;
+  }
+
+  .clima-cabecalho {
+    align-items: flex-start;
+  }
+
+  .temperatura-bloco {
+    min-width: auto;
+  }
+
+  .temperatura {
+    font-size: 3.1rem;
+  }
+
+  .temperatura span {
+    font-size: 1.15rem;
+  }
+
+  .detalhes {
+    grid-template-columns: 1fr;
+  }
+
+  .rodape {
+    flex-direction: column;
+  }
+}

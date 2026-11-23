@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Consulte as condições meteorológicas atuais de uma cidade."
+    />
+    <title>ClimaTempo | Clima atual</title>
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <main class="pagina">
+      <header class="cabecalho">
+        <a class="marca" href="climaTempo.html" aria-label="ClimaTempo, página inicial">
+          <span class="marca-icone" aria-hidden="true">☀</span>
+          <span>ClimaTempo</span>
+        </a>
+        <p class="etiqueta">PREVISÃO DO TEMPO</p>
+        <h1>O clima da sua cidade, <span>agora.</span></h1>
+        <p class="introducao">
+          Pesquise uma cidade para consultar as condições meteorológicas atuais.
+        </p>
+      </header>
+
+      <section class="busca-cartao" aria-label="Consultar cidade">
+        <form id="formularioCidade" novalidate>
+          <label for="cidade">Nome da cidade</label>
+          <div class="busca-linha">
+            <input
+              id="cidade"
+              name="cidade"
+              type="text"
+              placeholder="Ex.: Fortaleza"
+              autocomplete="address-level2"
+              aria-describedby="dica-cidade"
+            />
+            <button id="botaoConsultar" type="submit">
+              <span class="icone-busca" aria-hidden="true">⌕</span>
+              <span>Consultar</span>
+            </button>
+          </div>
+          <p id="dica-cidade" class="dica">Digite o nome da cidade em português ou inglês.</p>
+        </form>
+      </section>
+
+      <section
+        class="resultado"
+        aria-labelledby="titulo-resultado"
+        aria-live="polite"
+        aria-busy="false"
+      >
+        <div class="estado" id="painelStatus" data-status="idle">
+          <span class="estado-ponto" aria-hidden="true"></span>
+          <div>
+            <p class="estado-titulo" id="statusConsulta">Aguardando consulta</p>
+            <p class="estado-mensagem" id="mensagem">
+              Informe uma cidade para ver os dados meteorológicos.
+            </p>
+          </div>
+        </div>
+
+        <div class="clima-cabecalho">
+          <div>
+            <p class="etiqueta">CONDIÇÕES ATUAIS</p>
+            <h2 id="titulo-resultado">
+              <span id="nomeCidade">Sua cidade</span>
+            </h2>
+            <p class="localizacao" id="localizacao">Estado ou região · País</p>
+          </div>
+          <div class="temperatura-bloco">
+            <span class="temperatura-icone" id="iconeClima" aria-hidden="true">☁</span>
+            <p class="temperatura" id="temperatura">—<span>°C</span></p>
+            <p class="descricao-clima" id="descricaoClima">Aguardando dados</p>
+          </div>
+        </div>
+
+        <div class="detalhes">
+          <article class="detalhe">
+            <span class="detalhe-icone" aria-hidden="true">◷</span>
+            <div>
+              <p class="detalhe-rotulo">Sensação térmica</p>
+              <p class="detalhe-valor" id="sensacaoTermica">—</p>
+            </div>
+          </article>
+          <article class="detalhe">
+            <span class="detalhe-icone" aria-hidden="true">≈</span>
+            <div>
+              <p class="detalhe-rotulo">Umidade relativa</p>
+              <p class="detalhe-valor" id="umidade">—</p>
+            </div>
+          </article>
+          <article class="detalhe">
+            <span class="detalhe-icone" aria-hidden="true">⌖</span>
+            <div>
+              <p class="detalhe-rotulo">Coordenadas</p>
+              <p class="detalhe-valor" id="coordenadas">—</p>
+            </div>
+          </article>
+          <article class="detalhe">
+            <span class="detalhe-icone" aria-hidden="true">#</span>
+            <div>
+              <p class="detalhe-rotulo">Código meteorológico</p>
+              <p class="detalhe-valor" id="codigoClima">—</p>
+            </div>
+          </article>
+        </div>
+
+        <footer class="rodape">
+          <span>Atualização: <time id="atualizacao">—</time></span>
+          <span>Dados meteorológicos: Open-Meteo</span>
+        </footer>
+      </section>
+
+      <p class="credito">Informações meteorológicas fornecidas pela API Open-Meteo.</p>
+    </main>
+  </body>
+</html>
